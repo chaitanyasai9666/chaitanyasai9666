@@ -1,0 +1,77 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 500" width="500" height="500" role="img" aria-label="A rubber duck in a hoodie wearing pixel sunglasses">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#0b1220"/>
+      <stop offset="1" stop-color="#12284d"/>
+    </linearGradient>
+    <linearGradient id="accent" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#22d3ee"/>
+      <stop offset="1" stop-color="#34d399"/>
+    </linearGradient>
+    <radialGradient id="duck" cx="0.4" cy="0.35" r="0.75">
+      <stop offset="0" stop-color="#fde68a"/>
+      <stop offset="1" stop-color="#fbbf24"/>
+    </radialGradient>
+    <radialGradient id="glow" cx="0.5" cy="0.5" r="0.5">
+      <stop offset="0" stop-color="#22d3ee" stop-opacity="0.35"/>
+      <stop offset="1" stop-color="#22d3ee" stop-opacity="0"/>
+    </radialGradient>
+    <pattern id="grid" width="50" height="50" patternUnits="userSpaceOnUse">
+      <path d="M50 0H0V50" fill="none" stroke="#1e3a5f" stroke-width="1" opacity="0.4"/>
+    </pattern>
+  </defs>
+
+  <rect width="500" height="500" fill="url(#bg)"/>
+  <rect width="500" height="500" fill="url(#grid)"/>
+  <circle cx="250" cy="235" r="230" fill="url(#glow)"/>
+
+  <!-- hoodie body -->
+  <path d="M70 520 C80 410 150 365 250 365 C350 365 420 410 430 520 Z" fill="#1e293b"/>
+  <!-- hood behind the head -->
+  <path d="M250 62 C140 62 92 150 96 250 C99 330 150 392 250 392 C350 392 401 330 404 250 C408 150 360 62 250 62 Z" fill="#1e293b"/>
+  <path d="M250 62 C140 62 92 150 96 250 C99 330 150 392 250 392 C350 392 401 330 404 250 C408 150 360 62 250 62 Z" fill="none" stroke="url(#accent)" stroke-width="5" opacity="0.9"/>
+  <!-- inside of the hood -->
+  <ellipse cx="250" cy="238" rx="128" ry="136" fill="#0f172a"/>
+
+  <!-- duck head -->
+  <circle cx="250" cy="242" r="112" fill="url(#duck)"/>
+  <!-- hair tuft -->
+  <path d="M244 134 C236 112 252 100 262 110 C258 118 258 126 262 134 Z" fill="#fbbf24"/>
+  <!-- cheeks -->
+  <circle cx="172" cy="286" r="17" fill="#fb923c" opacity="0.35"/>
+  <circle cx="328" cy="286" r="17" fill="#fb923c" opacity="0.35"/>
+
+  <!-- beak with a smirk -->
+  <path d="M190 290 C200 266 300 266 310 290 C304 318 196 318 190 290 Z" fill="#fb923c"/>
+  <path d="M196 293 C226 303 280 303 306 288" fill="none" stroke="#c2410c" stroke-width="5" stroke-linecap="round"/>
+  <ellipse cx="232" cy="280" rx="5" ry="3" fill="#c2410c"/>
+  <ellipse cx="268" cy="280" rx="5" ry="3" fill="#c2410c"/>
+
+  <!-- pixel sunglasses -->
+  <g fill="#020617">
+    <rect x="140" y="196" width="220" height="16"/>
+    <rect x="156" y="212" width="88" height="16"/>
+    <rect x="164" y="228" width="72" height="16"/>
+    <rect x="172" y="244" width="56" height="12"/>
+    <rect x="264" y="212" width="88" height="16"/>
+    <rect x="272" y="228" width="72" height="16"/>
+    <rect x="280" y="244" width="56" height="12"/>
+  </g>
+  <!-- lens glints -->
+  <g fill="#22d3ee">
+    <rect x="172" y="212" width="16" height="8"/>
+    <rect x="188" y="220" width="16" height="8"/>
+    <rect x="280" y="212" width="16" height="8"/>
+    <rect x="296" y="220" width="16" height="8"/>
+  </g>
+  <g fill="#34d399">
+    <rect x="204" y="228" width="12" height="8"/>
+    <rect x="312" y="228" width="12" height="8"/>
+  </g>
+
+  <!-- hoodie strings -->
+  <path d="M214 392 V436" stroke="#94a3b8" stroke-width="6" stroke-linecap="round"/>
+  <path d="M286 392 V428" stroke="#94a3b8" stroke-width="6" stroke-linecap="round"/>
+  <circle cx="214" cy="442" r="7" fill="url(#accent)"/>
+  <circle cx="286" cy="434" r="7" fill="url(#accent)"/>
+</svg>
