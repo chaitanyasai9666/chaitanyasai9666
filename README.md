@@ -60,6 +60,8 @@ Real output from each tool. Click a card to open the repo.
 Graduating **May 2027** and open to SOC analyst, VAPT and security engineering roles.
 Find me on **[LinkedIn](https://www.linkedin.com/in/chaitanya-sai-63b216350/)**.
 
+<img src="./assets/wave.svg" alt="" width="100%" />
+
 <div align="center">
   <sub>Everything here is tested on synthetic data or systems I own. Scan only what you are authorised to scan.</sub>
 </div>
