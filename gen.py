@@ -12,8 +12,8 @@ SANS = "'Segoe UI', Inter, Helvetica, Arial, sans-serif"
 MONO = "'JetBrains Mono', 'Cascadia Code', Consolas, Menlo, monospace"
 
 # ---- data: update these when a project is added --------------------------------------------
-STATS = [("4", "security tools"), ("52", "security checks"), ("13", "ATT&CK techniques"), ("47", "tests in CI")]
-TOOLS = {"phish": ("Phishing Email Analyzer", BLUE), "logs": ("Log Threat Analyzer", GREEN), "recon": ("Nmap Recon Reporter", "#d97706")}
+STATS = [("5", "security projects"), ("63", "security checks"), ("14", "ATT&CK techniques"), ("70", "tests in CI")]
+TOOLS = {"siem": ("mini-siem", RED), "phish": ("Phishing Email Analyzer", BLUE), "logs": ("Log Threat Analyzer", GREEN), "recon": ("Nmap Recon Reporter", "#d97706")}
 COVERAGE = [   # tactic, [(technique id, name, tool)]
     ("Reconnaissance", [("T1595.002", "Vulnerability Scanning", "logs"), ("T1595.003", "Wordlist Scanning", "logs")]),
     ("Initial Access", [("T1566", "Phishing", "phish"), ("T1566.001", "Spearphishing Attachment", "phish"),
@@ -21,10 +21,16 @@ COVERAGE = [   # tactic, [(technique id, name, tool)]
                         ("T1078", "Valid Accounts", "logs")]),
     ("Persistence", [("T1136.001", "Create Local Account", "logs")]),
     ("Defense Evasion", [("T1036.007", "Double File Extension", "phish"), ("T1656", "Impersonation", "phish")]),
-    ("Credential Access", [("T1110.001", "Password Guessing", "logs"), ("T1110.003", "Password Spraying", "logs")]),
+    ("Credential Access", [("T1110.001", "Password Guessing", "logs"), ("T1110.003", "Password Spraying", "logs"),
+                           ("T1552.001", "Credentials In Files", "siem")]),
     ("Discovery", [("T1046", "Network Service Discovery", "recon")]),
 ]
 TERMINALS = [  # file, title, tagline, command, [(severity or None, text)]
+    ("card-siem", "mini-siem", "A SIEM built from scratch, with a Docker attack lab",
+     "docker compose run --rm attacker",
+     [(None, "60 events analysed, 14 alerts, 11/11 rules fired"), ("CRIT", "T1078      root login after brute force"),
+      ("HIGH", "T1136.001  backdoor account created"), ("HIGH", "T1110.003  password spraying"),
+      ("HIGH", "T1190      command injection attempt"), ("MED ", "T1595.002  nmap scripting engine")]),
     ("card-phish", "Phishing Email Analyzer", "Triage a reported email in one command",
      "python phish_analyzer.py reported.eml",
      [(None, "Verdict: LIKELY PHISHING (score 25)"), ("HIGH", "T1566      SPF fail, DMARC fail"),
@@ -50,11 +56,11 @@ PIPELINE = [("Commit", "git push"), ("SonarQube", "SAST"), ("Trivy", "image scan
             ("OWASP ZAP", "DAST"), ("Kubernetes", "deploy"), ("Prometheus", "monitor + alert")]
 JOURNEY = [("2023", "Started B.Tech", "CSE (Cyber Security), SRMIST"),
            ("May – Aug 2026", "VAPT Intern", "Dhara Global Solutions"),
-           ("Nov 2026", "Shipped 4 security tools", "tested, in CI, mapped to ATT&CK"),
+           ("Nov 2026", "Built a SIEM + 4 security tools", "tested, in CI, mapped to ATT&CK"),
            ("May 2027", "Graduating", "open to security roles")]
 TOOLBOX = [("I TEST WITH", ORANGE, ["Nmap", "Nessus", "Burp Suite", "Metasploit", "Wireshark", "OWASP Top 10"]),
            ("I DETECT WITH", BLUE, ["Python", "C", "MITRE ATT&CK", "OWASP mapping", "Log analysis", "Phishing triage", "IOC extraction"]),
-           ("I DEPLOY WITH", GREEN, ["Linux", "AWS", "Docker", "Kubernetes", "Terraform", "Ansible", "Jenkins", "GitHub Actions"])]
+           ("I DEPLOY WITH", GREEN, ["Linux", "AWS", "Docker", "Kubernetes", "Terraform", "Ansible", "Jenkins", "GitHub Actions", "SQLite"])]
 SEV = {"CRIT": RED, "HIGH": ORANGE, "MED ": AMBER, "LOW ": DIM, "IOC ": BLUE}
 # ---------------------------------------------------------------------------------------------
 
