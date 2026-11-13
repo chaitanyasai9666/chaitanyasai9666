@@ -12,7 +12,7 @@ SANS = "'Segoe UI', Inter, Helvetica, Arial, sans-serif"
 MONO = "'JetBrains Mono', 'Cascadia Code', Consolas, Menlo, monospace"
 
 # ---- data: update these when a project is added --------------------------------------------
-STATS = [("3", "security tools"), ("34", "detection checks"), ("13", "ATT&CK techniques"), ("34", "tests in CI")]
+STATS = [("4", "security tools"), ("52", "security checks"), ("13", "ATT&CK techniques"), ("47", "tests in CI")]
 TOOLS = {"phish": ("Phishing Email Analyzer", BLUE), "logs": ("Log Threat Analyzer", GREEN), "recon": ("Nmap Recon Reporter", "#d97706")}
 COVERAGE = [   # tactic, [(technique id, name, tool)]
     ("Reconnaissance", [("T1595.002", "Vulnerability Scanning", "logs"), ("T1595.003", "Wordlist Scanning", "logs")]),
@@ -40,15 +40,20 @@ TERMINALS = [  # file, title, tagline, command, [(severity or None, text)]
      [(None, "2 hosts, 12 open ports, 10 findings"), ("CRIT", "21/ftp      vsftpd 2.3.4 backdoor"),
       ("CRIT", "6667/irc    UnrealIRCd backdoor"), ("HIGH", "23/telnet   cleartext remote login"),
       ("HIGH", "3306/mysql  database exposed"), ("LOW ", "80/http     unencrypted web")]),
+    ("card-headers", "Web Header Auditor", "Grade a site's security configuration from A to F",
+     "python demo.py",
+     [(None, "CARELESS SITE: Grade F (0/100), 12 findings"), ("HIGH", "CWE-942   CORS reflects any Origin"),
+      ("HIGH", "CWE-319   served over plain HTTP"), ("MED ", "CWE-1021  clickjacking possible"),
+      ("MED ", "CWE-1004  cookie without HttpOnly"), ("LOW ", "CWE-200   Server: Apache/2.4.49")]),
 ]
 PIPELINE = [("Commit", "git push"), ("SonarQube", "SAST"), ("Trivy", "image scan"),
             ("OWASP ZAP", "DAST"), ("Kubernetes", "deploy"), ("Prometheus", "monitor + alert")]
 JOURNEY = [("2023", "Started B.Tech", "CSE (Cyber Security), SRMIST"),
            ("May – Aug 2026", "VAPT Intern", "Dhara Global Solutions"),
-           ("Nov 2026", "Shipped 3 detection tools", "tested, in CI, mapped to ATT&CK"),
+           ("Nov 2026", "Shipped 4 security tools", "tested, in CI, mapped to ATT&CK"),
            ("May 2027", "Graduating", "open to security roles")]
 TOOLBOX = [("I TEST WITH", ORANGE, ["Nmap", "Nessus", "Burp Suite", "Metasploit", "Wireshark", "OWASP Top 10"]),
-           ("I DETECT WITH", BLUE, ["Python", "C", "MITRE ATT&CK", "Log analysis", "Phishing triage", "IOC extraction"]),
+           ("I DETECT WITH", BLUE, ["Python", "C", "MITRE ATT&CK", "OWASP mapping", "Log analysis", "Phishing triage", "IOC extraction"]),
            ("I DEPLOY WITH", GREEN, ["Linux", "AWS", "Docker", "Kubernetes", "Terraform", "Ansible", "Jenkins", "GitHub Actions"])]
 SEV = {"CRIT": RED, "HIGH": ORANGE, "MED ": AMBER, "LOW ": DIM, "IOC ": BLUE}
 # ---------------------------------------------------------------------------------------------
